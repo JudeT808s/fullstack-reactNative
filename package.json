@@ -1,6 +1,8 @@
 {
   "name": "fullstack-reactnative",
-  "main": "expo-router/entry",
+
+    "main": "expo-router/entry"
+  ,
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
