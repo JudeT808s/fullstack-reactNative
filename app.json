@@ -14,7 +14,8 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.fullstack-reactNative"
+      "bundleIdentifier": "com.anonymous.fullstack-reactNative",
+      "package": "com.jude.aora"
     },
     "android": {
       "adaptiveIcon": {
