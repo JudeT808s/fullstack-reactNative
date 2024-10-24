@@ -7,7 +7,6 @@ import CustomButton from "../../components/CustomButton";
 import { Link } from "expo-router";
 
 const SignIn = () => {
-  console.log('images.logo:', images.logo);
 
   const [form, setForm] = useState({
     email: "",

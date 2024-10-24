@@ -1,13 +1,14 @@
-import { View, Text, Image, ScrollView } from "react-native";
-import React, { useState } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { images } from "../../constants";
-import FormField from "../../components/FormField";
-import CustomButton from "../../components/CustomButton";
 import { Link } from "expo-router";
-
+import React, { useState } from "react";
+import { Image, ScrollView, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import CustomButton from "../../components/CustomButton";
+import FormField from "../../components/FormField";
+import { images } from "../../constants";
+import { createUser } from "../../lib/appwrite";
+import { Alert } from "react-native";
+import router from "expo-router";
 const SignUp = () => {
-  console.log('images.logo:', images.logo);
 
   const [form, setForm] = useState({
     username: "",
@@ -16,9 +17,23 @@ const SignUp = () => {
   });
   const [isSubmitting, setisSubmitting]= useState(false);
 
-  const submit = () => {
-  
-  }
+  const submit = async() => {
+    if(!form.username || !form.email || !form.password) {
+      Alert.alert("All fields are required");
+    }
+    setisSubmitting(true);
+    try{
+      const reuslt = await createUser(form.email, form.password, form.username);
+
+      router.replace('/home')
+    }catch(e){
+      Alert.alert("An error occured", e.message);
+    }finally{
+      setisSubmitting(false);
+    }
+      Alert.return;
+  createUser();
+    }
 
   return (
     <SafeAreaView className="bg-primary h-full">
@@ -35,7 +50,7 @@ const SignUp = () => {
         <FormField
           title="Username"
           value={form.username}
-          handleChangeText={(e) => setForm({ ...form, email: e })}
+          handleChangeText={(e) => setForm({ ...form, username: e })}
           otherStyles="mt-10"
         />
         <FormField
