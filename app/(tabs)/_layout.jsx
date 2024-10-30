@@ -5,7 +5,7 @@ import { icons } from "../../constants";
 
 const TabIcon = ({ icon, color, name, focused }) => {
   return (
-    <View style={{ alignItems: "center", justifyContent: "center", gap: 8 }}>
+    <View style={{ alignItems: "center", justifyContent: "center", gap: 2 }}>
       <Image
         source={icon}
         resizeMode="contain"
