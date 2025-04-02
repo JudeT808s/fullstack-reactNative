@@ -4,7 +4,7 @@ import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import "../styles/global.css";
 import GlobalProvider from "../context/GlobalProvider";
-
+import { config } from "../lib/appwrite";
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
